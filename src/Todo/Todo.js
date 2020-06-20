@@ -169,8 +169,7 @@ export default function Todo(props) {
                     <AddIcon />
                     Create
                 </Fab>
-                {todoItems.slice(0, 3)}
-                {todoItems.slice(6,10)}
+                {todoItems}
                 <Reward
                     coins={coins}
                     setCoins={setCoins}
