@@ -48,8 +48,8 @@ const sounds = [
   "https://mynoise.net/superGenerator.php?g1=finnishSaunaSoundscapeGenerator.php%3Fc%3D1%26l%3D30623040303000603030%26m%3D%26d%3D0&g2=isochronicBrainwaveGenerator.php%3Fc%3D1%26l%3D00504030200000000000%26m%3D%26d%3D0&g3=&g4=&g5=&yt=",
   "https://mynoise.net/superGenerator.php?g1=pureBinauralBrainwaveGenerator.php%3Fc%3D1%26l%3D50502500000000000000%26m%3D%26d%3D0&g2=squeakingSailboatSoundscapeGenerator.php%3Fc%3D1%26l%3D25252525132525251525%26m%3D%26d%3D0&g3=&g4=&g5=&yt=",
   "https://mynoise.net/NoiseMachines/paulNagleSequenceGenerator.php",
-  "https://mynoise.net/NoiseMachines/cafeRestaurantNoiseGenerator.php",
-  "https://mynoise.net/NoiseMachines/sleepingDragonToneGenerator.php"  
+  "https://mynoise.net/NoiseMachines/sleepingDragonToneGenerator.php",
+  "https://www.youtube.com/watch?v=gTXHw_Wl2f0"  
 ]
 
 export default function TodoCard(props) {
