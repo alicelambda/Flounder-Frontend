@@ -4,7 +4,7 @@ import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
+import Todo from './todo/Todo'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +26,7 @@ function App() {
     <Grid container spacing={3}>
       <Grid item xs={4}>
         <h1>Dailies</h1>
-        <Paper className={classes.paper}>xs=3</Paper>
+        <Todo/>
       </Grid>
       <Grid item xs={4}>
         <h1>Todo</h1>
