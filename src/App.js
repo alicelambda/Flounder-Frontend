@@ -31,8 +31,7 @@ function App() {
       </Grid>
       <Grid item xs={4}>
         <h1>Todo</h1>
-        <Todo/>
-        
+        <Todo/>        
       </Grid>
       <Grid item xs={4}>
         <h1>Rewards</h1>
