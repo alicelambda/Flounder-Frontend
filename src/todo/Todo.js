@@ -8,7 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import { useSelector, useDispatch } from 'react-redux';
 import {
     addTodo,
-    selectTodos
+    selectTodos,
+    loadTodos
 } from './todoSlice'
 import TodoCard from './TodoCard';
 
@@ -47,6 +48,10 @@ export function Todo() {
     const [time, setTime] = React.useState(30);
     const todo = useSelector(selectTodos);
     const dispatch = useDispatch();
+   
+    React.useEffect(() => {
+        dispatch(loadTodos([1,23,3]))
+    },[])
   
 
     return (

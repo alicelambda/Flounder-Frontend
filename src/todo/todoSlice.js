@@ -11,11 +11,19 @@ export const todoSlice = createSlice({
                     id:"heello"
                 }
             ]
+        },
+        loadTodos: {
+            reducer: (state,action) => {
+                console.log("Loads")
+                console.log(action.payload)
+                return action.payload;
+
+            }
         }
     }
 });
 
-export const {addTodo} = todoSlice.actions;
+export const {addTodo,loadTodos} = todoSlice.actions;
 
 export const selectTodos = state =>state.todos;
 
