@@ -48,9 +48,26 @@ export function Todo() {
     const [time, setTime] = React.useState(30);
     const todo = useSelector(selectTodos);
     const dispatch = useDispatch();
+
+    const getTodoData = () => {
+        fetch("https://api.alicereuter.com/api/todo/all",{
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                cookie: "TESTCOOKIE"
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            dispatch(loadTodos(data.todos))
+        })
+    }
    
     React.useEffect(() => {
-        dispatch(loadTodos([1,23,3]))
+        getTodoData()
     },[])
   
 
@@ -61,7 +78,7 @@ export function Todo() {
             >
                 Add
             </button>
-            {todo.map(() => <TodoCard/>)}
+            {todo.map((data) => <TodoCard data={data} />)}
         </div>
     );
 }

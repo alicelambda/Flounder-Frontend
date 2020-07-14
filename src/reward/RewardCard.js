@@ -63,27 +63,9 @@ export default function TodoCard(props) {
     return (
         <Paper className={classes.paper}>
             <Typography color="textPrimary" variant="h6" >{props.data.title} Due in {props.data.delta}</Typography>
-            <Typography>00:00</Typography>
             <Grid container spacing={3}>
-                <Grid item xs={3}>
-                    <Button>
-                        Start
-                </Button>
-                </Grid>
-                <Grid item xs={6}>
-                    <Slider
-                        min={1}
-                        max={60}
-                        defaultValue={20}
-                        aria-labelledby="discrete-slider-custom"
-                        step={null}
-                        valueLabelDisplay="auto"
-                        getAriaValueText={valuetext}
-                        valueLabelFormat={valueLabelFormat}
-                        value={typeof time === 'number' ? time : 30}
-                        marks={marks}
-                        onChange={handleSliderChange}
-                    />
+                <Grid item xs={7}>
+                    
                 </Grid>
                 <Grid item xs={3}>
                     <Button >

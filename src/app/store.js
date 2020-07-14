@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {todoReducer} from '../todo/todoSlice';
+import { todoReducer } from '../todo/todoSlice';
+import { rewardReducer } from '../reward/rewardSlice';
 
 export default configureStore({
     reducer: {
-        todos: todoReducer
+        todos: todoReducer,
+        rewards: rewardReducer,
     },
 });
