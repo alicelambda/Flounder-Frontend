@@ -8,21 +8,26 @@ export const rewardSlice = createSlice({
             return [
                 ...state,
                 {
-                    id:"heello"
+                    id: "heello"
                 }
             ]
         },
         loadRewards: {
-            reducer: (state,action) => {
+            reducer: (state, action) => {
                 return action.payload;
 
+            }
+        },
+        removeReward: {
+            reducer: (state, action) => {
+                return state.filter((x) => action.payload !== x.id)
             }
         }
     }
 });
 
-export const {addReward,loadRewards} = rewardSlice.actions;
+export const { addReward, loadRewards, removeReward } = rewardSlice.actions;
 
-export const selectRewards = state =>state.rewards;
+export const selectRewards = state => state.rewards;
 
 export const rewardReducer = rewardSlice.reducer;
