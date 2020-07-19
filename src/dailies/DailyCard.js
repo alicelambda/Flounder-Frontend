@@ -39,7 +39,7 @@ function valueLabelFormat(x) {
     return `${coin} `;
 }
 
-export default function TodoCard(props) {
+export default function DailyCard(props) {
     const [time, setTime] = React.useState(30);
     const dispatch = useDispatch();
 
