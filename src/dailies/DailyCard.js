@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/core/Slider'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
-    removeTodo
-} from './todoSlice'
+    removeDaily
+} from './dailySlice'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +68,7 @@ export default function DailyCard(props) {
     };
 
     const removeMainTodo = (todoid) => {
-        dispatch(removeTodo(todoid))
+        dispatch(removeDaily(todoid))
         fetch("https://api.alicereuter.com/api/todo/remove", {
             method: 'POST',
             headers: {

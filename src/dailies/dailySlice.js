@@ -15,13 +15,17 @@ export const dailySlice = createSlice({
         loadDailies: {
             reducer: (state,action) => {
                 return action.payload;
-
+            }
+        },
+        removeDaily: {
+            reducer : (state,action) => {
+                return state.filter((x) => action.payload !== x.id)
             }
         }
     }
 });
 
-export const {addReward,loadRewards} = dailySlice.actions;
+export const {removeDaily,loadDailies, addDaily} = dailySlice.actions;
 
 export const selectDailies = state =>state.dailies;
 

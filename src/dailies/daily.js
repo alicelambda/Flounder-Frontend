@@ -7,10 +7,10 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-    addTodo,
-    selectTodos,
-    loadTodos
-} from './todoSlice'
+    loadDailies,
+    selectDailies,
+    addDaily
+} from './dailySlice'
 import DailyCard from './DailyCard';
 
 
@@ -46,11 +46,11 @@ function valueLabelFormat(x) {
 
 export function Daily() {
     const [time, setTime] = React.useState(30);
-    const todo = useSelector(selectTodos);
+    const dailies = useSelector(selectDailies);
     const dispatch = useDispatch();
 
     const getTodoData = () => {
-        fetch("https://api.alicereuter.com/api/todo/all",{
+        fetch("https://api.alicereuter.com/api/daily/all",{
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -62,7 +62,7 @@ export function Daily() {
         })
         .then(response => response.json())
         .then(data => {
-            dispatch(loadTodos(data.todos))
+            dispatch(loadDailies(data.todos))
         })
     }
    
@@ -74,13 +74,13 @@ export function Daily() {
     return (
         <div>
             <button
-            onClick={() => dispatch(addTodo())}
+            onClick={() => dispatch(addDaily())}
             >
                 Add
             </button>
-            {todo.map((data) => <Daily data={data} />)}
+            {dailies.map((data) => <DailyCard data={data} />)}
         </div>
     );
 }
 
-export default Todo;
+export default Daily;

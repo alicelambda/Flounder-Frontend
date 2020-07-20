@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Todo from './todo/Todo'
+import Daily from './dailies/daily'
 import Reward from './reward/reward';
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,7 @@ function App() {
     <Grid container spacing={3}>
       <Grid item xs={4}>
         <h1>Dailies</h1>
+        <Daily/>
       </Grid>
       <Grid item xs={4}>
         <h1>Todo</h1>
