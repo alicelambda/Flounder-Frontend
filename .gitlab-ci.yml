@@ -1,0 +1,22 @@
+buildprod:
+  image: node:latest
+  stage: build
+  only:
+    - master
+  script:
+  - npm install
+  - npm run build
+  artifacts:
+    paths:
+    -  $CI_PROJECT_DIR
+
+deploy:
+ image: alicelambda/awscli
+ stage: deploy
+ only:
+   - master
+ script:
+    - cd build/
+    - aws --region  "us-west-1" s3 sync . s3://$URL
+    - aws cloudfront create-invalidation --distribution-id EPORIVGP6BTQY --paths /
+
