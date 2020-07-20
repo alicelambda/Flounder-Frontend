@@ -12,7 +12,8 @@ import {
     addDaily
 } from './dailySlice'
 import DailyCard from './DailyCard';
-
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    fab: {
+    }
+
 }));
 
 function valuetext(value) {
@@ -48,6 +52,7 @@ export function Daily() {
     const [time, setTime] = React.useState(30);
     const dailies = useSelector(selectDailies);
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     const getTodoData = () => {
         fetch("https://api.alicereuter.com/api/daily/all",{
@@ -73,11 +78,14 @@ export function Daily() {
 
     return (
         <div>
-            <button
-            onClick={() => dispatch(addDaily())}
+            <Fab
+            variant="extended"
+            color="secondary"
+            className={classes.fab}
+            aria-label="add"
             >
-                Add
-            </button>
+                Create
+            </Fab>
             {dailies.map((data) => <DailyCard data={data} />)}
         </div>
     );

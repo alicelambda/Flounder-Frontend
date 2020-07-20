@@ -12,6 +12,8 @@ import {
     loadTodos
 } from './todoSlice'
 import TodoCard from './TodoCard';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -73,11 +75,13 @@ export function Todo() {
 
     return (
         <div>
-            <button
-            onClick={() => dispatch(addTodo())}
+             <Fab
+            variant="extended"
+            color="secondary"
+            aria-label="add"
             >
-                Add
-            </button>
+                Create
+            </Fab>
             {todo.map((data) => <TodoCard data={data} />)}
         </div>
     );

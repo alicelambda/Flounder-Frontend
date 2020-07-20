@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import {
     addReward,
     loadRewards,
@@ -8,13 +8,15 @@ import {
 import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import RewardCard from './RewardCard';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 export default function Reward(props) {
     const rewards = useSelector(selectRewards);
     const dispatch = useDispatch();
 
     const getRewardData = () => {
-        fetch("https://api.alicereuter.com/api/reward/active",{
+        fetch("https://api.alicereuter.com/api/reward/active", {
             method: 'POST',
             headers: {
                 Accept: 'applications/json',
@@ -24,22 +26,25 @@ export default function Reward(props) {
                 cookie: "DSFDSFD"
             })
         })
-        .then(response => response.json())
-        .then( data => {
-            dispatch(loadRewards(data))
-        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch(loadRewards(data))
+            })
     }
 
     React.useEffect(() => {
         getRewardData();
-    },[]);
+    }, []);
 
     return (
         <div>
-            <button>
-                Add
-            </button>
-            {rewards.map((data) => <RewardCard data={data}/>)}
+            <Fab
+                variant="extended"
+                color="secondary"
+                aria-label="add"
+            >
+                Create
+            </Fab>            {rewards.map((data) => <RewardCard data={data} />)}
         </div>
     )
 }
