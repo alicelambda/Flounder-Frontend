@@ -4,13 +4,9 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import Slider from '@material-ui/core/Slider'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
-    addReward,
-    loadRewards,
-    removeReward,
-    selectRewards,
+    removeReward    
 } from './rewardSlice'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,49 +20,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function valuetext(value) {
-    return `${value}°C`;
-}
-
-
-function valueLabelFormat(x) {
-    var coin
-    if (x < 25) {
-        coin = 3 * x + 15;
-    } else if (x < 55) {
-        coin = 2 * x + 40;
-    } else {
-        coin = x + 95;
-    }
-    return `${coin} `;
-}
 
 export default function RewardCard(props) {
-    const [time, setTime] = React.useState(30);
     const dispatch = useDispatch();
-
-    const posts = [1]
-    var i;
-    for (i = 5; i <= 60; i += 5) {
-        posts.push(i)
-    }
-
-
-    const mark = posts.map(num => {
-        const label = num % 15 ? "" : num.toString(10);
-        return {
-            value: num,
-            label: label
-        }
-
-    })
-    const marks = mark
-
     const classes = useStyles();
 
-    const handleSliderChange = (event, newValue) => {
-        setTime(newValue);
-    };
 
     const removeRewardCard = (rewardid) => {
         dispatch(removeReward(rewardid))

@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    addReward,
     loadRewards,
-    removeReward,
     selectRewards,
 } from './rewardSlice'
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import RewardCard from './RewardCard';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 
 export default function Reward(props) {
     const rewards = useSelector(selectRewards);
@@ -34,7 +30,7 @@ export default function Reward(props) {
 
     React.useEffect(() => {
         getRewardData();
-    }, []);
+    });
 
     return (
         <div>

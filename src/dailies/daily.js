@@ -1,19 +1,12 @@
-import React, { useState} from 'react';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/core/Slider'
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles'
 import { useSelector, useDispatch } from 'react-redux';
 import {
     loadDailies,
-    selectDailies,
-    addDaily
+    selectDailies
 } from './dailySlice'
 import DailyCard from './DailyCard';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,27 +22,9 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function valuetext(value) {
-    return `${value}°C`;
-}
-
-
-function valueLabelFormat(x) {
-    var coin
-    if (x < 25) {
-        coin = 3 * x + 15;
-    } else if (x < 55) {
-        coin = 2 * x + 40;
-    } else {
-        coin = x + 95;
-    }
-    return `${coin} `;
-}
-
 
 
 export function Daily() {
-    const [time, setTime] = React.useState(30);
     const dailies = useSelector(selectDailies);
     const dispatch = useDispatch();
     const classes = useStyles();
@@ -73,7 +48,7 @@ export function Daily() {
    
     React.useEffect(() => {
         getTodoData()
-    },[])
+    });
   
 
     return (
