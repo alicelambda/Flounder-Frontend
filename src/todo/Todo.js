@@ -6,13 +6,14 @@ import {
 } from './todoSlice'
 import TodoCard from './TodoCard';
 import Fab from '@material-ui/core/Fab';
-
+import NewTodo from './NewTodo'
 
 
 
 
 export function Todo() {
     const todo = useSelector(selectTodos);
+    const [open,setOpen] = React.useState(false);
     const dispatch = useDispatch();
 
     const getTodoData = () => {
@@ -35,6 +36,10 @@ export function Todo() {
     React.useEffect(() => {
         getTodoData()
     })
+
+    const handleClose = (value) => {
+        setOpen(false);
+      };
   
 
     return (
@@ -43,9 +48,15 @@ export function Todo() {
             variant="extended"
             color="secondary"
             aria-label="add"
+            onClick={() => setOpen(true)}
+
             >
                 Create
             </Fab>
+            <NewTodo 
+               open={open}
+               onClose={handleClose}
+            />
             {todo.map((data) => <TodoCard data={data} />)}
         </div>
     );
